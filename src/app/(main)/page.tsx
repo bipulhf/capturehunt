@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className='min-h-screen text-white'>
+    <main className='min-h-screen text-white py-1'>
       <NavbarDemo />
       <BackgroundLines>
         <section className='relative min-h-[calc(100vh-150px)] flex items-center justify-center overflow-hidden'>

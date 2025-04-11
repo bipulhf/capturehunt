@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 export const Hero = () => {
   return (
@@ -13,9 +14,9 @@ export const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className='text-5xl md:text-7xl font-bold mb-6 leading-tight'>
+        <h1 className='text-4xl md:text-6xl font-bold mb-6 leading-tight'>
           Find Your Perfect{" "}
-          <span className='text-[#e18c03] relative'>
+          <span className='text-[#e18c03] text-8xl relative font-[family-name:var(--font-horta)]'>
             Photographer
             <span className='absolute -bottom-2 left-0 w-full h-1 bg-[#e18c03] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300' />
           </span>
@@ -24,17 +25,11 @@ export const Hero = () => {
           Discover talented photographers for your special moments. Book your
           perfect shoot today.
         </p>
-        <div className='flex flex-col sm:flex-row gap-4 justify-center md:justify-start'>
-          <Link
-            href='/photographers'
-            className='bg-[#e18c03] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition-all hover:scale-105 transform'
-          >
-            Find Photographers
-          </Link>
-          <Link
-            href='/portfolio'
-            className='border-2 border-white/20 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all hover:scale-105 transform'
-          >
+        <div className='flex flex-col sm:flex-row gap-4 justify-center items-center md:justify-start'>
+          <HoverBorderGradient>
+            <Link href='/photographers'>Find Photographers</Link>
+          </HoverBorderGradient>
+          <Link href='/portfolio' className='hover:underline'>
             View Portfolio
           </Link>
         </div>

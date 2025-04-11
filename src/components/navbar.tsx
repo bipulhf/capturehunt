@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/resizable-navbar";
 import Link from "next/link";
 import { useState } from "react";
+import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
 export function NavbarDemo() {
   const navItems = [
@@ -31,10 +32,11 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className='flex items-center gap-4'>
-            <Link href='/photographers'>
-              <NavbarButton variant='secondary'>Photographers</NavbarButton>
-            </Link>
-            <NavbarButton variant='dark'>Login</NavbarButton>
+            <HoverBorderGradient className='p-0'>
+              <Link href='/photographers'>
+                <NavbarButton variant='secondary'>Photographers</NavbarButton>
+              </Link>
+            </HoverBorderGradient>
           </div>
         </NavBody>
 
@@ -64,15 +66,8 @@ export function NavbarDemo() {
             ))}
             <div className='flex w-full flex-col gap-4'>
               <Link href='/photographers'>
-                <NavbarButton variant='secondary'>Photographers</NavbarButton>
+                <NavbarButton variant='dark'>Photographers</NavbarButton>
               </Link>
-              <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant='dark'
-                className='w-full'
-              >
-                Login
-              </NavbarButton>
             </div>
           </MobileNavMenu>
         </MobileNav>
