@@ -1,11 +1,40 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { StarsBackground } from "./ui/stars-background";
+
 export const WhyUs = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 50 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
     <div className='max-w-6xl mx-auto'>
       <h2 className='text-4xl font-bold text-center mb-16'>
         Why Choose <span className='text-[#e18c03]'>CaptureHunt</span>
       </h2>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
-        <div className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'>
+      <motion.div
+        className='grid grid-cols-1 md:grid-cols-3 gap-8'
+        variants={container}
+        initial='hidden'
+        whileInView='show'
+        viewport={{ once: true }}
+      >
+        <motion.div
+          className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'
+          variants={item}
+        >
           <div className='w-16 h-16 bg-[#e18c03] rounded-full flex items-center justify-center mb-4'>
             <svg
               className='w-8 h-8 text-white'
@@ -31,8 +60,11 @@ export const WhyUs = () => {
           <p className='text-gray-300'>
             Browse through high-quality portfolios of professional photographers
           </p>
-        </div>
-        <div className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'>
+        </motion.div>
+        <motion.div
+          className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'
+          variants={item}
+        >
           <div className='w-16 h-16 bg-[#e18c03] rounded-full flex items-center justify-center mb-4'>
             <svg
               className='w-8 h-8 text-white'
@@ -52,8 +84,11 @@ export const WhyUs = () => {
           <p className='text-gray-300'>
             Connect with verified and experienced photographers
           </p>
-        </div>
-        <div className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'>
+        </motion.div>
+        <motion.div
+          className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'
+          variants={item}
+        >
           <div className='w-16 h-16 bg-[#e18c03] rounded-full flex items-center justify-center mb-4'>
             <svg
               className='w-8 h-8 text-white'
@@ -73,8 +108,11 @@ export const WhyUs = () => {
           <p className='text-gray-300'>
             Easy and fast booking process for your photography needs
           </p>
-        </div>
-        <div className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'>
+        </motion.div>
+        <motion.div
+          className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'
+          variants={item}
+        >
           <div className='w-16 h-16 bg-[#e18c03] rounded-full flex items-center justify-center mb-4'>
             <svg
               className='w-8 h-8 text-white'
@@ -94,8 +132,11 @@ export const WhyUs = () => {
           <p className='text-gray-300'>
             Safe and secure payment processing with multiple payment options
           </p>
-        </div>
-        <div className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'>
+        </motion.div>
+        <motion.div
+          className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'
+          variants={item}
+        >
           <div className='w-16 h-16 bg-[#e18c03] rounded-full flex items-center justify-center mb-4'>
             <svg
               className='w-8 h-8 text-white'
@@ -116,8 +157,11 @@ export const WhyUs = () => {
             Book sessions at your convenience with our flexible scheduling
             system
           </p>
-        </div>
-        <div className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'>
+        </motion.div>
+        <motion.div
+          className='bg-white/10 p-6 rounded-lg backdrop-blur-sm'
+          variants={item}
+        >
           <div className='w-16 h-16 bg-[#e18c03] rounded-full flex items-center justify-center mb-4'>
             <svg
               className='w-8 h-8 text-white'
@@ -137,8 +181,9 @@ export const WhyUs = () => {
           <p className='text-gray-300'>
             Round-the-clock customer support for all your photography needs
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
+      <StarsBackground />
     </div>
   );
 };
