@@ -33,18 +33,18 @@ This is the home page and introduces users to the CaptureHunt platform.
 
 #### Components Used:
 
-- **Navbar**:  
+- **Navbar**  
   ➤ Import from: `/src/components/resizable-navbar.tsx`  
   ➤ Based on Aceternity UI
 
-- **Hero Section**:  
+- **Hero Section**  
   ➤ Uses background effect from: `/src/components/background-lines.tsx`  
   ➤ Includes a hero image + text styled with Aceternity components
 
-- **Testimonials (Our Happy Customers)**:  
+- **Testimonials (Our Happy Customers)**  
   ➤ Import from: `/src/components/animated-testimonials.tsx`
 
-- **Footer**:  
+- **Footer**  
   ➤ Wrapped with meteor effect from: `/src/components/meteors.tsx`
 
 ---
@@ -53,7 +53,14 @@ This is the home page and introduces users to the CaptureHunt platform.
 
 Helps users search for and discover photographers based on filters or location.
 
-> 💡 Design suggestion: Include cards/grid layout for profiles, filter sidebar or dropdown, and responsive results.
+#### Components Used:
+
+- **Photographer Cards**  
+  ➤ Import from: `/src/components/direction-aware-hover.tsx`  
+  ➤ Direction-aware animated hover effects from Aceternity UI  
+  ➤ Each card displays photographer's image, name, and a hover overlay for actions or preview
+
+> 💡 Design Suggestion: Display cards in a responsive grid. Optionally include filters or a search bar above the grid.
 
 ---
 
@@ -61,14 +68,22 @@ Helps users search for and discover photographers based on filters or location.
 
 Showcases individual photographer’s profile, gallery, and details.
 
-> 💡 Design suggestion: Use modals or lightboxes for gallery viewing, and include CTA to book/contact.
+> 💡 Design Suggestion: Use a responsive gallery layout with modal/lightbox, detailed bio, and a call-to-action button (e.g., "Hire Now").
 
 ---
 
-## 🚀 Getting Started
+## Folder Structure
 
-### 📦 Install Dependencies
+public/
+└── images/
+└── logo_white.png
 
-```bash
-pnpm install
-```
+src/
+└── components/
+├── resizable-navbar.tsx
+├── background-lines.tsx
+├── animated-testimonials.tsx
+├── meteors.tsx
+└── direction-aware-hover.tsx
+
+👨‍💻 Made with ❤️ using Aceternity UI, Next.js, and Tailwind CSS
