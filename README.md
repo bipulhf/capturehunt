@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📸 CaptureHunt
 
-## Getting Started
+A sleek, dark-themed and fully responsive sample site for finding and showcasing photographers. Built using **Next.js 15**, **Tailwind CSS**, and **Aceternity UI** components.
 
-First, run the development server:
+![Logo](./public/images/logo_white.png)
+
+## ✨ Features
+
+- ⚡ Built with **Next.js 15**
+- 🎨 Styled with **Tailwind CSS**
+- 🌌 Uses **Aceternity UI** for stunning UI components
+- 📱 Mobile responsive
+- 🧭 Pages:
+  - Landing Page
+  - Find Photographers
+  - Photographers Portfolio
+
+## 🌈 Theme Colors
+
+| Name              | Color Code |
+| ----------------- | ---------- |
+| Light             | `#ffffff`  |
+| Dark (Background) | `#37404d`  |
+| Action Button     | `#e18c03`  |
+
+## 📄 Page Structure
+
+---
+
+### 1. **Landing Page**
+
+This is the home page and introduces users to the CaptureHunt platform.
+
+#### Components Used:
+
+- **Navbar**:  
+  ➤ Import from: `/src/components/resizable-navbar.tsx`  
+  ➤ Based on Aceternity UI
+
+- **Hero Section**:  
+  ➤ Uses background effect from: `/src/components/background-lines.tsx`  
+  ➤ Includes a hero image + text styled with Aceternity components
+
+- **Testimonials (Our Happy Customers)**:  
+  ➤ Import from: `/src/components/animated-testimonials.tsx`
+
+- **Footer**:  
+  ➤ Wrapped with meteor effect from: `/src/components/meteors.tsx`
+
+---
+
+### 2. **Find Photographers**
+
+Helps users search for and discover photographers based on filters or location.
+
+> 💡 Design suggestion: Include cards/grid layout for profiles, filter sidebar or dropdown, and responsive results.
+
+---
+
+### 3. **Photographers Portfolio**
+
+Showcases individual photographer’s profile, gallery, and details.
+
+> 💡 Design suggestion: Use modals or lightboxes for gallery viewing, and include CTA to book/contact.
+
+---
+
+## 🚀 Getting Started
+
+### 📦 Install Dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
