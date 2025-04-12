@@ -21,8 +21,8 @@ export const defaultPhotographers: Photographer[] = [
     rating: 4.8,
     location: "New York, USA",
     bio: "A passionate wedding photographer with over 10 years of experience capturing beautiful moments. Specializing in candid and natural shots that tell your unique love story.",
-    color: "bg-amber-900",
-    textColor: "text-white",
+    color: "rgb(120 53 15)",
+    textColor: "white",
     projects: [
       {
         title: "Wedding Photography",
@@ -51,8 +51,8 @@ export const defaultPhotographers: Photographer[] = [
     rating: 4.9,
     location: "Los Angeles, USA",
     bio: "Portrait photographer dedicated to bringing out the best in every subject. Known for creating stunning, timeless images that capture personality and emotion.",
-    color: "bg-[#750019]",
-    textColor: "text-white",
+    color: "#750019",
+    textColor: "white",
     projects: [
       {
         title: "Wedding Photography",
@@ -81,8 +81,8 @@ export const defaultPhotographers: Photographer[] = [
     rating: 4.7,
     location: "Seattle, USA",
     bio: "Landscape photographer with a keen eye for nature's beauty. Specializing in capturing breathtaking scenes from around the world.",
-    color: "bg-emerald-900",
-    textColor: "text-white",
+    color: "rgb(6 78 59)",
+    textColor: "white",
     projects: [
       {
         title: "Wedding Photography",
@@ -110,8 +110,8 @@ export const defaultPhotographers: Photographer[] = [
     rating: 4.6,
     location: "Tokyo, Japan",
     bio: "Street photographer capturing the raw essence of urban life. Specializing in candid moments and the beauty of everyday scenes.",
-    color: "bg-[#414433]",
-    textColor: "text-white",
+    color: "#414433",
+    textColor: "white",
     projects: [
       {
         title: "Wedding Photography",
@@ -139,8 +139,8 @@ export const defaultPhotographers: Photographer[] = [
     rating: 4.9,
     location: "Paris, France",
     bio: "Fashion photographer with a unique vision for style and elegance. Known for creating striking editorial images that push creative boundaries.",
-    color: "bg-[#307A98]",
-    textColor: "text-white",
+    color: "#307A98",
+    textColor: "white",
     projects: [
       {
         title: "Wedding Photography",
@@ -168,8 +168,8 @@ export const defaultPhotographers: Photographer[] = [
     rating: 4.8,
     location: "Sydney, Australia",
     bio: "Wildlife photographer dedicated to capturing the beauty and majesty of nature. Specializing in rare and endangered species photography.",
-    color: "bg-teal-900",
-    textColor: "text-white",
+    color: "rgb(19 78 74)",
+    textColor: "white",
     projects: [
       {
         title: "Wedding Photography",

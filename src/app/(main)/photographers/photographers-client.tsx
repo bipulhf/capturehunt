@@ -5,8 +5,8 @@ import { DirectionAwareHover } from "@/components/ui/direction-aware-hover";
 import { Filters } from "./filters";
 import { Filter, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
-import { photographers } from "@/data/photographets";
 import { useRouter } from "next/navigation";
+import { usePhotographerStore } from "@/store/photographer-store";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -78,6 +78,7 @@ export function PhotographersClient() {
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
+  const photographers = usePhotographerStore((state) => state.photographers);
 
   useEffect(() => {
     if (typeof window !== "undefined") {

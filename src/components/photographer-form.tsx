@@ -4,9 +4,10 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
-import { Photographer, photographers } from "@/data/photographets";
+import { Photographer } from "@/data/photographets";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { usePhotographerStore } from "@/store/photographer-store";
 
 export default function PhotographerForm() {
   const [formData, setFormData] = useState<Omit<Photographer, "id" | "rating">>(
@@ -24,40 +25,25 @@ export default function PhotographerForm() {
   const [portfolioLinks, setPortfolioLinks] = useState<
     { title: string; src: string }[]
   >([{ title: "", src: "" }]);
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const addPhotographer = usePhotographerStore(
+    (state) => state.addPhotographer
+  );
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const updatedFormData = {
       ...formData,
       projects: portfolioLinks.filter((link) => link.title && link.src),
     };
 
-    // Get existing photographers from localStorage or use the default array
-    const storedPhotographers = localStorage.getItem("photographers");
-    const existingPhotographers = storedPhotographers
-      ? JSON.parse(storedPhotographers)
-      : photographers;
+    addPhotographer(updatedFormData);
 
-    const id = existingPhotographers.length + 1;
-
-    const newPhotographer = {
-      ...updatedFormData,
-      id: id.toString(),
-      rating: Math.floor(Math.random() * 5) + 1,
-    };
-
-    // Update the photographers array
-    const updatedPhotographers = [...existingPhotographers, newPhotographer];
-
-    // Save to localStorage
-    localStorage.setItem("photographers", JSON.stringify(updatedPhotographers));
-
-    // Trigger storage event to update other components
-    window.dispatchEvent(new Event("storage"));
-
-    router.push(`/photographers/${id}`);
+    router.push(
+      `/photographers/${usePhotographerStore.getState().photographers.length}`
+    );
   };
 
   const handleInputChange = (
@@ -260,8 +246,12 @@ export default function PhotographerForm() {
           </button>
         </div>
 
-        <HoverBorderGradient className='bg-black text-white cursor-pointer'>
-          Submit
+        <HoverBorderGradient
+          className={`bg-black text-white ${
+            isSubmitting ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+          }`}
+        >
+          {isSubmitting ? "Submitting..." : "Submit"}
         </HoverBorderGradient>
       </form>
     </div>

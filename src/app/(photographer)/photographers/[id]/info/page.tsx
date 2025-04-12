@@ -1,4 +1,3 @@
-import { photographers } from "@/data/photographets";
 import { InfoAnimation } from "./info-animation";
 
 export default async function InfoPage({
@@ -7,7 +6,6 @@ export default async function InfoPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const photographer = photographers.find((p) => p.id === id);
 
-  return <InfoAnimation photographer={photographer!} />;
+  return <InfoAnimation id={id} />;
 }

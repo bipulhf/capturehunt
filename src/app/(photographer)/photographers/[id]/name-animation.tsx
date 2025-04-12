@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Photographer } from "@/data/photographets";
 import SignupFormDemo from "@/components/signup-form-demo";
 import {
   Dialog,
@@ -10,6 +9,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { usePhotographerStore } from "@/store/photographer-store";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/stars-background";
+import { Nav } from "../nav";
 
 const nameVariants = {
   hidden: {
@@ -68,48 +71,72 @@ const buttonVariants = {
 };
 
 interface NameAnimationProps {
-  photographer: Photographer;
+  id: string;
 }
 
-export function NameAnimation({ photographer }: NameAnimationProps) {
+export function NameAnimation({ id }: NameAnimationProps) {
+  const photographer = usePhotographerStore((state) =>
+    state.getPhotographer(id)
+  );
+
+  if (!photographer) {
+    return null;
+  }
+
   return (
-    <motion.div
-      initial='hidden'
-      animate='visible'
-      variants={nameVariants}
-      className='min-h-screen flex flex-col items-center justify-center'
+    <main
+      style={{
+        backgroundColor: photographer.color,
+        color: photographer.textColor,
+      }}
+      className={`min-h-screen`}
     >
-      <motion.h1
-        className='font-[family-name:var(--font-horta)] text-[20rem] uppercase'
-        variants={nameVariants}
-      >
-        {photographer.name.split("").map((letter, index) => (
-          <motion.span
-            key={index}
-            variants={letterVariants}
-            className='inline-block'
+      <Nav id={id} />
+      <div className='relative z-10'>
+        {" "}
+        <motion.div
+          initial='hidden'
+          animate='visible'
+          variants={nameVariants}
+          className='min-h-screen flex flex-col items-center justify-center'
+        >
+          <motion.h1
+            className='font-[family-name:var(--font-horta)] text-[20rem] uppercase'
+            variants={nameVariants}
           >
-            {letter}
-          </motion.span>
-        ))}
-      </motion.h1>
-      <Dialog>
-        <DialogTrigger asChild>
-          <motion.button
-            variants={buttonVariants}
-            whileHover='hover'
-            className='px-8 py-4 border-2 border-white text-white rounded-full text-lg font-medium cursor-pointer'
-          >
-            Connect with me
-          </motion.button>
-        </DialogTrigger>
-        <DialogContent className='sm:max-w-[425px]'>
-          <DialogHeader>
-            <DialogTitle>Connect with {photographer.name}</DialogTitle>
-          </DialogHeader>
-          <SignupFormDemo />
-        </DialogContent>
-      </Dialog>
-    </motion.div>
+            {photographer.name.split("").map((letter, index) => (
+              <motion.span
+                key={index}
+                variants={letterVariants}
+                className='inline-block'
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </motion.h1>
+          <Dialog>
+            <DialogTrigger asChild>
+              <motion.button
+                variants={buttonVariants}
+                whileHover='hover'
+                className='px-8 py-4 border-2 border-white text-white rounded-full text-lg font-medium cursor-pointer'
+              >
+                Connect with me
+              </motion.button>
+            </DialogTrigger>
+            <DialogContent className='sm:max-w-[425px]'>
+              <DialogHeader>
+                <DialogTitle>Connect with {photographer.name}</DialogTitle>
+              </DialogHeader>
+              <SignupFormDemo />
+            </DialogContent>
+          </Dialog>
+        </motion.div>
+      </div>
+      <div className='absolute top-0 left-0 w-full h-full z-0'>
+        <ShootingStars />
+        <StarsBackground />
+      </div>
+    </main>
   );
 }

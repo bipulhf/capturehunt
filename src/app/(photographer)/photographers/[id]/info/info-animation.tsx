@@ -2,7 +2,10 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import { Photographer } from "@/data/photographets";
+import { usePhotographerStore } from "@/store/photographer-store";
+import { StarsBackground } from "@/components/ui/stars-background";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { Nav } from "../../nav";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -46,42 +49,65 @@ const textVariants = {
   },
 };
 
-interface InfoAnimationProps {
-  photographer: Photographer;
-}
+export function InfoAnimation({ id }: { id: string }) {
+  const photographer = usePhotographerStore((state) =>
+    state.getPhotographer(id)
+  );
 
-export function InfoAnimation({ photographer }: InfoAnimationProps) {
+  if (!photographer) {
+    return null;
+  }
+
   return (
-    <motion.div
-      initial='hidden'
-      animate='visible'
-      variants={containerVariants}
-      className='h-screen overflow-hidden flex gap-10'
+    <main
+      className={`min-h-screen`}
+      style={{
+        backgroundColor: photographer.color,
+        color: photographer.textColor,
+      }}
     >
-      <motion.div variants={imageVariants} className='relative w-1/2 h-full'>
-        <Image
-          src={photographer.image}
-          alt={photographer.name}
-          fill
-          className='object-cover'
-          priority
-        />
-      </motion.div>
-      <motion.div
-        variants={textVariants}
-        className='w-1/2 flex items-center pr-10'
-      >
-        <div className='space-y-4'>
-          <h1 className='text-3xl font-bold leading-relaxed text-justify'>
-            {photographer.bio}
-          </h1>
-          <div className='flex items-center gap-2'>
-            <span className='text-yellow-400'>★</span>
-            <span className='text-xl'>{photographer.rating}</span>
-          </div>
-          <p className='text-xl text-gray-300'>{photographer.location}</p>
-        </div>
-      </motion.div>
-    </motion.div>
+      <Nav id={id} />
+      <div className='relative z-10'>
+        {" "}
+        <motion.div
+          initial='hidden'
+          animate='visible'
+          variants={containerVariants}
+          className='h-screen overflow-hidden flex gap-10'
+        >
+          <motion.div
+            variants={imageVariants}
+            className='relative w-1/2 h-full'
+          >
+            <Image
+              src={photographer.image}
+              alt={photographer.name}
+              fill
+              className='object-cover'
+              priority
+            />
+          </motion.div>
+          <motion.div
+            variants={textVariants}
+            className='w-1/2 flex items-center pr-10'
+          >
+            <div className='space-y-4'>
+              <h1 className='text-3xl font-bold leading-relaxed text-justify'>
+                {photographer.bio}
+              </h1>
+              <div className='flex items-center gap-2'>
+                <span className='text-yellow-400'>★</span>
+                <span className='text-xl'>{photographer.rating}</span>
+              </div>
+              <p className='text-xl text-gray-300'>{photographer.location}</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      </div>
+      <div className='absolute top-0 left-0 w-full h-full z-0'>
+        <ShootingStars />
+        <StarsBackground />
+      </div>
+    </main>
   );
 }
