@@ -8,7 +8,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className={`bg-black/85`}>
+    <main className={`bg-white/10`}>
       <NavbarDemo />
       {children}
       <div className='absolute top-0 left-0 w-full h-full -z-10'>

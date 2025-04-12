@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang='en' className='dark'>
       <body
-        className={`${horta.variable} ${poppins.variable} font-[family-name:var(--font-poppins)] antialiased bg-black/85`}
+        className={`${horta.variable} ${poppins.variable} font-[family-name:var(--font-poppins)] antialiased bg-black`}
       >
         {children}
       </body>
