@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import SignupFormDemo from "@/components/signup-form-demo";
 import {
   Dialog,
@@ -13,6 +13,12 @@ import { usePhotographerStore } from "@/store/photographer-store";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { Nav } from "../nav";
+import dynamic from "next/dynamic";
+import { useState } from "react";
+
+const Confetti = dynamic(() => import("react-confetti"), {
+  ssr: false,
+});
 
 const nameVariants = {
   hidden: {
@@ -78,10 +84,28 @@ export function NameAnimation({ id }: NameAnimationProps) {
   const photographer = usePhotographerStore((state) =>
     state.getPhotographer(id)
   );
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   if (!photographer) {
     return null;
   }
+
+  const handleFormSuccess = () => {
+    setIsOpen(false);
+    setShowConfetti(true);
+    setShowSuccess(true);
+
+    // Start fading out after 5 seconds
+    setTimeout(() => {
+      setShowConfetti(false);
+      // Delay success message fade out slightly
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 500);
+    }, 5000);
+  };
 
   return (
     <main
@@ -91,6 +115,38 @@ export function NameAnimation({ id }: NameAnimationProps) {
       }}
       className={`min-h-screen`}
     >
+      <AnimatePresence>
+        {showConfetti && (
+          <motion.div
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <Confetti width={window.innerWidth} height={window.innerHeight} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {showSuccess && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className='fixed right-4 bottom-4 z-50 bg-black text-white px-6 py-3 rounded-lg shadow-lg'
+          >
+            <div className='flex items-center gap-2'>
+              <span className='text-2xl'>🎉</span>
+              <div>
+                <p className='font-semibold'>Success!</p>
+                <p className='text-sm text-gray-200'>
+                  Thank you for connecting!
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <Nav id={id} />
       <div className='relative z-10'>
         {" "}
@@ -114,7 +170,7 @@ export function NameAnimation({ id }: NameAnimationProps) {
               </motion.span>
             ))}
           </motion.h1>
-          <Dialog>
+          <Dialog open={isOpen} onOpenChange={setIsOpen}>
             <DialogTrigger asChild>
               <motion.button
                 variants={buttonVariants}
@@ -128,7 +184,7 @@ export function NameAnimation({ id }: NameAnimationProps) {
               <DialogHeader>
                 <DialogTitle>Connect with {photographer.name}</DialogTitle>
               </DialogHeader>
-              <SignupFormDemo />
+              <SignupFormDemo onSuccess={handleFormSuccess} />
             </DialogContent>
           </Dialog>
         </motion.div>
