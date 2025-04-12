@@ -49,8 +49,8 @@ export const Hero = () => {
           <HoverBorderGradient>
             <Link href='/photographers'>Find Photographers</Link>
           </HoverBorderGradient>
-          <Link href='/' className='hover:underline'>
-            View Portfolio
+          <Link href='/create' className='hover:underline'>
+            Create Portfolio
           </Link>
         </div>
       </motion.div>

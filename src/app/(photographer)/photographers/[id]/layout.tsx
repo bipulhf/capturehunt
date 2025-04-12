@@ -13,8 +13,16 @@ export default async function RootLayout({
   const { id } = await params;
   const photographer = photographers.find((p) => p.id === id);
 
+  if (!photographer) {
+    return <div>Photographer not found</div>;
+  }
+
   return (
-    <main className={`min-h-screen ${photographer!.color} text-white`}>
+    <main
+      className={`min-h-screen ${photographer!.color} ${
+        photographer!.textColor
+      }`}
+    >
       <Nav id={id} />
       <div className='relative z-10'>{children} </div>
       <div className='absolute top-0 left-0 w-full h-full z-0'>

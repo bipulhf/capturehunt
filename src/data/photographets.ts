@@ -7,9 +7,11 @@ export interface Photographer {
   location: string;
   bio: string;
   color: string;
+  textColor: string;
+  projects: { title: string; src: string }[];
 }
 
-export const photographers: Photographer[] = [
+export const defaultPhotographers: Photographer[] = [
   {
     id: "1",
     name: "John Doe",
@@ -20,6 +22,25 @@ export const photographers: Photographer[] = [
     location: "New York, USA",
     bio: "A passionate wedding photographer with over 10 years of experience capturing beautiful moments. Specializing in candid and natural shots that tell your unique love story.",
     color: "bg-amber-900",
+    textColor: "text-white",
+    projects: [
+      {
+        title: "Wedding Photography",
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Portrait Series",
+        src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Landscape Collection",
+        src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Street Photography",
+        src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop",
+      },
+    ],
   },
   {
     id: "2",
@@ -31,6 +52,25 @@ export const photographers: Photographer[] = [
     location: "Los Angeles, USA",
     bio: "Portrait photographer dedicated to bringing out the best in every subject. Known for creating stunning, timeless images that capture personality and emotion.",
     color: "bg-[#750019]",
+    textColor: "text-white",
+    projects: [
+      {
+        title: "Wedding Photography",
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Portrait Series",
+        src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Landscape Collection",
+        src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Street Photography",
+        src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop",
+      },
+    ],
   },
   {
     id: "3",
@@ -42,6 +82,25 @@ export const photographers: Photographer[] = [
     location: "Seattle, USA",
     bio: "Landscape photographer with a keen eye for nature's beauty. Specializing in capturing breathtaking scenes from around the world.",
     color: "bg-emerald-900",
+    textColor: "text-white",
+    projects: [
+      {
+        title: "Wedding Photography",
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Portrait Series",
+        src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Landscape Collection",
+        src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Street Photography",
+        src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop",
+      },
+    ],
   },
   {
     id: "4",
@@ -52,6 +111,25 @@ export const photographers: Photographer[] = [
     location: "Tokyo, Japan",
     bio: "Street photographer capturing the raw essence of urban life. Specializing in candid moments and the beauty of everyday scenes.",
     color: "bg-[#414433]",
+    textColor: "text-white",
+    projects: [
+      {
+        title: "Wedding Photography",
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Portrait Series",
+        src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Landscape Collection",
+        src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Street Photography",
+        src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop",
+      },
+    ],
   },
   {
     id: "5",
@@ -62,6 +140,25 @@ export const photographers: Photographer[] = [
     location: "Paris, France",
     bio: "Fashion photographer with a unique vision for style and elegance. Known for creating striking editorial images that push creative boundaries.",
     color: "bg-[#307A98]",
+    textColor: "text-white",
+    projects: [
+      {
+        title: "Wedding Photography",
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Portrait Series",
+        src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Landscape Collection",
+        src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Street Photography",
+        src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop",
+      },
+    ],
   },
   {
     id: "6",
@@ -72,5 +169,27 @@ export const photographers: Photographer[] = [
     location: "Sydney, Australia",
     bio: "Wildlife photographer dedicated to capturing the beauty and majesty of nature. Specializing in rare and endangered species photography.",
     color: "bg-teal-900",
+    textColor: "text-white",
+    projects: [
+      {
+        title: "Wedding Photography",
+        src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Portrait Series",
+        src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Landscape Collection",
+        src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
+      },
+      {
+        title: "Street Photography",
+        src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop",
+      },
+    ],
   },
 ];
+
+// Export the default photographers for initial use
+export const photographers = defaultPhotographers;

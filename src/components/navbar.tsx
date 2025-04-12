@@ -32,6 +32,9 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className='flex items-center gap-4'>
+            <HoverBorderGradient className='bg-black text-white'>
+              <Link href='/create'>Create Portfolio</Link>
+            </HoverBorderGradient>
             <HoverBorderGradient>
               <Link href='/photographers'>Photographers</Link>
             </HoverBorderGradient>
@@ -65,6 +68,9 @@ export function NavbarDemo() {
             <div className='flex w-full flex-col gap-4'>
               <Link href='/photographers'>
                 <NavbarButton variant='dark'>Photographers</NavbarButton>
+              </Link>
+              <Link href='/create'>
+                <NavbarButton variant='dark'>Create Portfolio</NavbarButton>
               </Link>
             </div>
           </MobileNavMenu>

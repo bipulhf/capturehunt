@@ -2,31 +2,11 @@
 
 import { motion } from "framer-motion";
 import Carousel from "@/components/ui/carousel";
+import { photographers } from "@/data/photographets";
 
-const dummyProjects = [
-  {
-    title: "Wedding Photography",
-    button: "View Project",
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    title: "Portrait Series",
-    button: "View Project",
-    src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    title: "Landscape Collection",
-    button: "View Project",
-    src: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
-    title: "Street Photography",
-    button: "View Project",
-    src: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1000&auto=format&fit=crop",
-  },
-];
+export default function ProjectsPage({ params }: { params: { id: string } }) {
+  const photographer = photographers.find((p) => p.id === params.id);
 
-export default function ProjectsPage() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -40,7 +20,7 @@ export default function ProjectsPage() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Carousel slides={dummyProjects} />
+          <Carousel slides={photographer!.projects || []} />
         </motion.div>
       </div>
     </motion.div>
