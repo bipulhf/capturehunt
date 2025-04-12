@@ -32,12 +32,14 @@ export function NavbarDemo() {
           <NavbarLogo />
           <NavItems items={navItems} />
           <div className='flex items-center gap-4'>
-            <HoverBorderGradient className='bg-black text-white'>
-              <Link href='/create'>Create Portfolio</Link>
-            </HoverBorderGradient>
-            <HoverBorderGradient>
-              <Link href='/photographers'>Photographers</Link>
-            </HoverBorderGradient>
+            <Link href='/create'>
+              <HoverBorderGradient className='bg-black text-white'>
+                Create Portfolio
+              </HoverBorderGradient>
+            </Link>
+            <Link href='/photographers'>
+              <HoverBorderGradient>Photographers</HoverBorderGradient>
+            </Link>
           </div>
         </NavBody>
 

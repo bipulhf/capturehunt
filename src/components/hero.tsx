@@ -46,9 +46,9 @@ export const Hero = () => {
           perfect shoot today.
         </p>
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center md:justify-start'>
-          <HoverBorderGradient>
-            <Link href='/photographers'>Find Photographers</Link>
-          </HoverBorderGradient>
+          <Link href='/photographers'>
+            <HoverBorderGradient>Find Photographers</HoverBorderGradient>
+          </Link>
           <Link href='/create' className='hover:underline'>
             Create Portfolio
           </Link>
