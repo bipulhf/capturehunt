@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 const text = "Find Your Perfect Photographer";
 const words = text.split(" ");
@@ -47,7 +48,12 @@ export const Hero = () => {
         </p>
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center md:justify-start'>
           <HoverBorderGradient>
-            <Link href='/photographers'>Find Photographers</Link>
+            <Link href='/photographers'>
+              Find{" "}
+              <ViewTransition name='photographers'>
+                Photographers
+              </ViewTransition>
+            </Link>
           </HoverBorderGradient>
           <Link href='/' className='hover:underline'>
             View Portfolio

@@ -66,34 +66,34 @@ export const DirectionAwareHover = ({
       onMouseEnter={handleMouseEnter}
       ref={ref}
       className={cn(
-        "md:h-96 w-60 h-60 md:w-96 bg-transparent rounded-lg overflow-hidden group/card relative",
+        "md:h-96 w-60 h-60 md:w-72 bg-transparent rounded-lg overflow-hidden group/card relative",
         className
       )}
     >
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode='wait'>
         <motion.div
-          className="relative h-full w-full"
-          initial="initial"
+          className='relative h-full w-full'
+          initial='initial'
           whileHover={direction}
-          exit="exit"
+          exit='exit'
         >
-          <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
+          <motion.div className='group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500' />
           <motion.div
             variants={variants}
-            className="h-full w-full relative bg-gray-50 dark:bg-black"
+            className='h-full w-full relative bg-gray-50 dark:bg-black'
             transition={{
               duration: 0.2,
               ease: "easeOut",
             }}
           >
             <Image
-              alt="image"
+              alt='image'
               className={cn(
                 "h-full w-full object-cover scale-[1.15]",
                 imageClassName
               )}
-              width="1000"
-              height="1000"
+              width='1000'
+              height='1000'
               src={imageUrl}
             />
           </motion.div>
