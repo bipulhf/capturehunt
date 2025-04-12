@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export function Nav({ id }: { id: string }) {
+export function Nav({ id, color }: { id: string; color: string }) {
   return (
     <nav
       className='nav'
@@ -16,6 +16,7 @@ export function Nav({ id }: { id: string }) {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        color,
       }}
     >
       <div className='logo font-[family-name:var(--font-horta)] text-3xl'>

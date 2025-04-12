@@ -147,7 +147,7 @@ export function NameAnimation({ id }: NameAnimationProps) {
           </motion.div>
         )}
       </AnimatePresence>
-      <Nav id={id} />
+      <Nav id={id} color={photographer.color} />
       <div className='relative z-10'>
         {" "}
         <motion.div
