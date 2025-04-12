@@ -27,7 +27,7 @@ export default function ProjectsPage() {
         color: photographer.textColor,
       }}
     >
-      <Nav id={params.id as string} color={photographer.color} />
+      <Nav id={params.id as string} color={photographer.textColor} />
       <div className='relative z-10'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

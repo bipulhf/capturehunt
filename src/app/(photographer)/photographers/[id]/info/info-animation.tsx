@@ -66,7 +66,7 @@ export function InfoAnimation({ id }: { id: string }) {
         color: photographer.textColor,
       }}
     >
-      <Nav id={id} color={photographer.color} />
+      <Nav id={id} color={photographer.textColor} />
       <div className='relative z-10'>
         {" "}
         <motion.div
