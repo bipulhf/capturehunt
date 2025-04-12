@@ -47,7 +47,9 @@ export const Hero = () => {
         </p>
         <div className='flex flex-col sm:flex-row gap-4 justify-center items-center md:justify-start'>
           <Link href='/photographers' className='cursor-pointer'>
-            <HoverBorderGradient>Find Photographers</HoverBorderGradient>
+            <HoverBorderGradient className='cursor-pointer'>
+              Find Photographers
+            </HoverBorderGradient>
           </Link>
           <Link href='/create' className='hover:underline'>
             Create Portfolio

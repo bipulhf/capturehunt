@@ -33,12 +33,14 @@ export function NavbarDemo() {
           <NavItems items={navItems} />
           <div className='flex items-center gap-4'>
             <Link href='/create' className='cursor-pointer'>
-              <HoverBorderGradient className='bg-black text-white'>
+              <HoverBorderGradient className='bg-black text-white cursor-pointer'>
                 Create Portfolio
               </HoverBorderGradient>
             </Link>
             <Link href='/photographers' className='cursor-pointer'>
-              <HoverBorderGradient>Photographers</HoverBorderGradient>
+              <HoverBorderGradient className='cursor-pointer'>
+                Photographers
+              </HoverBorderGradient>
             </Link>
           </div>
         </NavBody>
