@@ -6,6 +6,7 @@ export interface Photographer {
   rating: number;
   location: string;
   bio: string;
+  color: string;
 }
 
 export const photographers: Photographer[] = [
@@ -18,6 +19,7 @@ export const photographers: Photographer[] = [
     rating: 4.8,
     location: "New York, USA",
     bio: "A passionate wedding photographer with over 10 years of experience capturing beautiful moments. Specializing in candid and natural shots that tell your unique love story.",
+    color: "bg-amber-900",
   },
   {
     id: "2",
@@ -28,6 +30,7 @@ export const photographers: Photographer[] = [
     rating: 4.9,
     location: "Los Angeles, USA",
     bio: "Portrait photographer dedicated to bringing out the best in every subject. Known for creating stunning, timeless images that capture personality and emotion.",
+    color: "bg-rose-900",
   },
   {
     id: "3",
@@ -38,6 +41,7 @@ export const photographers: Photographer[] = [
     rating: 4.7,
     location: "Seattle, USA",
     bio: "Landscape photographer with a keen eye for nature's beauty. Specializing in capturing breathtaking scenes from around the world.",
+    color: "bg-emerald-900",
   },
   {
     id: "4",
@@ -46,6 +50,8 @@ export const photographers: Photographer[] = [
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
     rating: 4.6,
     location: "Tokyo, Japan",
+    bio: "Street photographer capturing the raw essence of urban life. Specializing in candid moments and the beauty of everyday scenes.",
+    color: "bg-slate-900",
   },
   {
     id: "5",
@@ -54,6 +60,8 @@ export const photographers: Photographer[] = [
     image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
     rating: 4.9,
     location: "Paris, France",
+    bio: "Fashion photographer with a unique vision for style and elegance. Known for creating striking editorial images that push creative boundaries.",
+    color: "bg-purple-900",
   },
   {
     id: "6",
@@ -62,5 +70,7 @@ export const photographers: Photographer[] = [
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
     rating: 4.8,
     location: "Sydney, Australia",
+    bio: "Wildlife photographer dedicated to capturing the beauty and majesty of nature. Specializing in rare and endangered species photography.",
+    color: "bg-teal-900",
   },
 ];
