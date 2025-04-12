@@ -8,6 +8,7 @@ import { Photographer } from "@/data/photographets";
 import { Trash2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { usePhotographerStore } from "@/store/photographer-store";
+import { motion } from "framer-motion";
 
 export default function PhotographerForm() {
   const [formData, setFormData] = useState<Omit<Photographer, "id" | "rating">>(
@@ -73,73 +74,113 @@ export default function PhotographerForm() {
   };
 
   return (
-    <div className='shadow-input rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black'>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className='shadow-input rounded-none bg-white p-4 md:rounded-2xl md:p-8 dark:bg-black'
+    >
       <form className='my-8' onSubmit={handleSubmit}>
-        <LabelInputContainer className='mb-4'>
-          <Label htmlFor='name'>Full Name</Label>
-          <Input
-            id='name'
-            name='name'
-            placeholder='John Doe'
-            type='text'
-            value={formData.name}
-            onChange={handleInputChange}
-          />
-        </LabelInputContainer>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <LabelInputContainer className='mb-4'>
+            <Label htmlFor='name'>Full Name</Label>
+            <Input
+              id='name'
+              name='name'
+              placeholder='John Doe'
+              type='text'
+              value={formData.name}
+              onChange={handleInputChange}
+            />
+          </LabelInputContainer>
+        </motion.div>
 
-        <LabelInputContainer className='mb-4'>
-          <Label htmlFor='specialty'>Specialty</Label>
-          <Input
-            id='specialty'
-            name='specialty'
-            placeholder='Wedding Photography'
-            type='text'
-            value={formData.specialty}
-            onChange={handleInputChange}
-            required
-          />
-        </LabelInputContainer>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <LabelInputContainer className='mb-4'>
+            <Label htmlFor='specialty'>Specialty</Label>
+            <Input
+              id='specialty'
+              name='specialty'
+              placeholder='Wedding Photography'
+              type='text'
+              value={formData.specialty}
+              onChange={handleInputChange}
+              required
+            />
+          </LabelInputContainer>
+        </motion.div>
 
-        <LabelInputContainer className='mb-4'>
-          <Label htmlFor='image'>Profile Image URL</Label>
-          <Input
-            id='image'
-            name='image'
-            placeholder='https://example.com/image.jpg'
-            type='url'
-            value={formData.image}
-            onChange={handleInputChange}
-            required
-          />
-        </LabelInputContainer>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <LabelInputContainer className='mb-4'>
+            <Label htmlFor='image'>Profile Image URL</Label>
+            <Input
+              id='image'
+              name='image'
+              placeholder='https://example.com/image.jpg'
+              type='url'
+              value={formData.image}
+              onChange={handleInputChange}
+              required
+            />
+          </LabelInputContainer>
+        </motion.div>
 
-        <LabelInputContainer className='mb-4'>
-          <Label htmlFor='location'>Location</Label>
-          <Input
-            id='location'
-            name='location'
-            placeholder='New York, USA'
-            type='text'
-            value={formData.location}
-            onChange={handleInputChange}
-            required
-          />
-        </LabelInputContainer>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          <LabelInputContainer className='mb-4'>
+            <Label htmlFor='location'>Location</Label>
+            <Input
+              id='location'
+              name='location'
+              placeholder='New York, USA'
+              type='text'
+              value={formData.location}
+              onChange={handleInputChange}
+              required
+            />
+          </LabelInputContainer>
+        </motion.div>
 
-        <LabelInputContainer className='mb-4'>
-          <Label htmlFor='bio'>Bio</Label>
-          <textarea
-            id='bio'
-            name='bio'
-            className='flex h-20 w-full rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-zinc-800'
-            placeholder='Tell us about yourself...'
-            value={formData.bio}
-            onChange={handleInputChange}
-            required
-          />
-        </LabelInputContainer>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <LabelInputContainer className='mb-4'>
+            <Label htmlFor='bio'>Bio</Label>
+            <textarea
+              id='bio'
+              name='bio'
+              className='flex h-20 w-full rounded-md border border-input px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-zinc-800'
+              placeholder='Tell us about yourself...'
+              value={formData.bio}
+              onChange={handleInputChange}
+              required
+            />
+          </LabelInputContainer>
+        </motion.div>
 
-        <div className='mb-4 flex items-center justify-between gap-10'>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+          className='mb-4 flex items-center justify-between gap-10'
+        >
           <Label>Color Preview</Label>
           <div className='flex gap-4 items-center'>
             <div className='flex-1'>
@@ -194,9 +235,14 @@ export default function PhotographerForm() {
           >
             Preview of how your page will look
           </div>
-        </div>
+        </motion.div>
 
-        <div className='mb-4'>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className='mb-4'
+        >
           <Label>Image Links</Label>
           {portfolioLinks.map((link, index) => (
             <div key={index} className='mb-4'>
@@ -244,17 +290,23 @@ export default function PhotographerForm() {
           >
             + Add another image link
           </button>
-        </div>
+        </motion.div>
 
-        <HoverBorderGradient
-          className={`bg-black text-white ${
-            isSubmitting ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
-          }`}
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </HoverBorderGradient>
+          <HoverBorderGradient
+            className={`bg-black text-white ${
+              isSubmitting ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+            }`}
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
+          </HoverBorderGradient>
+        </motion.div>
       </form>
-    </div>
+    </motion.div>
   );
 }
 
