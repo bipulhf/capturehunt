@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { NavbarDemo } from "@/components/navbar";
 
 const horta = localFont({
   src: "./horta.ttf",
@@ -9,14 +10,10 @@ const horta = localFont({
   display: "swap",
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -32,8 +29,9 @@ export default function RootLayout({
   return (
     <html lang='en' className='dark'>
       <body
-        className={`${horta.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-black/85`}
+        className={`${horta.variable} ${poppins.variable} font-[family-name:var(--font-poppins)] antialiased bg-black/85`}
       >
+        <NavbarDemo />
         {children}
       </body>
     </html>

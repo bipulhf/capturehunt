@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { StarsBackground } from "./ui/stars-background";
+import { ShootingStars } from "./ui/shooting-stars";
 
 export const WhyUs = () => {
   const container = {
@@ -183,6 +184,7 @@ export const WhyUs = () => {
           </p>
         </motion.div>
       </motion.div>
+      <ShootingStars />
       <StarsBackground />
     </div>
   );

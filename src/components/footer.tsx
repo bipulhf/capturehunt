@@ -20,7 +20,7 @@ export const Footer = () => {
               unoptimized
             />
             <h1 className='text-white text-3xl font-bold font-[family-name:var(--font-horta)]'>
-              CaptureHunt
+              Capture<span className='text-[#e18c03]'>Hunt</span>
             </h1>
             <p className='text-gray-300'>
               Find the perfect photographer for your special moments

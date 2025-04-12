@@ -243,7 +243,7 @@ export const NavbarLogo = () => {
         unoptimized
       />
       <span className='font-[family-name:var(--font-horta)] text-white text-3xl'>
-        CaptureHunt
+        Capture<span className='text-[#e18c03]'>Hunt</span>
       </span>
     </Link>
   );

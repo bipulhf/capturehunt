@@ -5,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { HoverBorderGradient } from "./ui/hover-border-gradient";
 
+const text = "Find Your Perfect Photographer";
+const words = text.split(" ");
+
 export const Hero = () => {
   return (
     <div className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-20'>
@@ -15,11 +18,28 @@ export const Hero = () => {
         transition={{ duration: 0.8 }}
       >
         <h1 className='text-4xl md:text-6xl font-bold mb-6 leading-tight'>
-          Find Your Perfect{" "}
-          <span className='text-[#e18c03] text-8xl relative font-[family-name:var(--font-horta)]'>
-            Photographer
-            <span className='absolute -bottom-2 left-0 w-full h-1 bg-[#e18c03] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300' />
-          </span>
+          {words.map((word, i) => (
+            <motion.span
+              key={i}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                duration: 0.2,
+                delay: i * 0.1,
+              }}
+              className={
+                i === words.length - 1
+                  ? "text-[#e18c03] text-8xl relative font-[family-name:var(--font-horta)]"
+                  : ""
+              }
+            >
+              {word}
+              {i < words.length - 1 ? " " : ""}
+              {i === words.length - 1 && (
+                <span className='absolute -bottom-2 left-0 w-full h-1 bg-[#e18c03] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300' />
+              )}
+            </motion.span>
+          ))}
         </h1>
         <p className='text-xl md:text-2xl mb-8 text-gray-300 max-w-lg'>
           Discover talented photographers for your special moments. Book your
@@ -29,7 +49,7 @@ export const Hero = () => {
           <HoverBorderGradient>
             <Link href='/photographers'>Find Photographers</Link>
           </HoverBorderGradient>
-          <Link href='/portfolio' className='hover:underline'>
+          <Link href='/' className='hover:underline'>
             View Portfolio
           </Link>
         </div>
