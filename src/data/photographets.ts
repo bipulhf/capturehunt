@@ -30,7 +30,7 @@ export const photographers: Photographer[] = [
     rating: 4.9,
     location: "Los Angeles, USA",
     bio: "Portrait photographer dedicated to bringing out the best in every subject. Known for creating stunning, timeless images that capture personality and emotion.",
-    color: "bg-rose-900",
+    color: "bg-[#750019]",
   },
   {
     id: "3",
@@ -51,7 +51,7 @@ export const photographers: Photographer[] = [
     rating: 4.6,
     location: "Tokyo, Japan",
     bio: "Street photographer capturing the raw essence of urban life. Specializing in candid moments and the beauty of everyday scenes.",
-    color: "bg-slate-900",
+    color: "bg-[#414433]",
   },
   {
     id: "5",
@@ -61,7 +61,7 @@ export const photographers: Photographer[] = [
     rating: 4.9,
     location: "Paris, France",
     bio: "Fashion photographer with a unique vision for style and elegance. Known for creating striking editorial images that push creative boundaries.",
-    color: "bg-purple-900",
+    color: "bg-[#307A98]",
   },
   {
     id: "6",
