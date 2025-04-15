@@ -7,6 +7,7 @@ import { Filter, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { usePhotographerStore } from "@/store/photographer-store";
 import { useRouter } from "next/navigation";
+import Loading from "../loading";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -79,6 +80,7 @@ export default function PhotographersClient() {
   const [mounted, setMounted] = useState(false);
   const photographers = usePhotographerStore((state) => state.photographers);
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -111,6 +113,10 @@ export default function PhotographersClient() {
 
   if (!mounted) {
     return null; // or a loading state
+  }
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (
@@ -191,6 +197,7 @@ export default function PhotographersClient() {
                     custom={index}
                     className='w-full aspect-square'
                     onClick={() => {
+                      setIsLoading(true);
                       router.push(`/photographers/${photographer.id}`);
                     }}
                   >
