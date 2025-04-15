@@ -6,6 +6,7 @@ import { Filters } from "./filters";
 import { Filter, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { usePhotographerStore } from "@/store/photographer-store";
+import { useRouter } from "next/navigation";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -70,13 +71,14 @@ const gridVariants = {
 
 // Dummy data for photographers
 
-export function PhotographersClient() {
+export default function PhotographersClient() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedSpecialty, setSelectedSpecialty] = useState("all");
   const [showFilters, setShowFilters] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [mounted, setMounted] = useState(false);
   const photographers = usePhotographerStore((state) => state.photographers);
+  const router = useRouter();
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -189,7 +191,7 @@ export function PhotographersClient() {
                     custom={index}
                     className='w-full aspect-square'
                     onClick={() => {
-                      window.location.href=`/photographers/${photographer.id}`;
+                      router.push(`/photographers/${photographer.id}`);
                     }}
                   >
                     <DirectionAwareHover

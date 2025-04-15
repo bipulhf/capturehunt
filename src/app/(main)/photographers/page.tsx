@@ -1,6 +1,6 @@
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
-import { PhotographersClient } from "./photographers-client";
+import PhotographersClient from "./photographers-client";
 
 export default function Photographers() {
   return (
